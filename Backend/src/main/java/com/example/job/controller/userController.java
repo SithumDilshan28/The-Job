@@ -21,34 +21,34 @@ import com.example.job.repository.userRepo;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/v1/user/")
+@RequestMapping("/user/")
 public class userController {
 	
 	@Autowired
 	private userRepo usersRepository;
 
-	// create users REST API
-		@PostMapping("/saveusers")
+		// Create User REST API
+		@PostMapping("/saveuser")
 		public user createUsers(@RequestBody user users) {
 			return usersRepository.save(users);
 		}
 		
-		// get all Users REST API
-		@GetMapping("/getusers")
+		// Get All Users REST API
+		@GetMapping("/getuser")
 		private List<user> getAllUsers() {
 			return usersRepository.findAll();
 		}
 		
-		// get User by Id REST API
-		@GetMapping("/getusers/{id}")
+		// Get User By Id REST API
+		@GetMapping("/getuser/{id}")
 		public ResponseEntity<user> getUsersById(@PathVariable Long id) {
 			user users = usersRepository.findById(id)
 					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
 			return ResponseEntity.ok(users);
 		}
 		
-		// update User REST API
-		@PutMapping("/getusers/{id}")
+		// Update User REST API
+		@PutMapping("/updateuser/{id}")
 		public ResponseEntity<user> updateUsers(@PathVariable Long id, @RequestBody user dusers) {
 			user users = usersRepository.findById(id)
 					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
@@ -70,8 +70,8 @@ public class userController {
 			return ResponseEntity.ok(updateUsers);
 		}
 
-		// delete User REST API
-		@DeleteMapping("/getusers/{id}")
+		// Delete User REST API
+		@DeleteMapping("/deleteuser/{id}")
 		public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
 			user users = usersRepository.findById(id)
 					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
