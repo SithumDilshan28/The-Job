@@ -13,4 +13,7 @@ public interface jobRepo extends JpaRepository<job, Long>{
 	@Query(value = "SELECT DISTINCT category FROM job", nativeQuery = true)
 	List<String> findDistinctCategories();
 	
+	@Query(value = "SELECT category, COUNT(*) as duplicateCount FROM job GROUP BY category", nativeQuery = true)
+    List<Object[]> findDistinctCategoriesWithDuplicateCount();
+	
 }

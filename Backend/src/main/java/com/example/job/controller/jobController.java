@@ -20,7 +20,6 @@ import com.example.job.exception.ResourceNotFoundException;
 import com.example.job.model.job;
 import com.example.job.repository.jobRepo;
 
-
 @CrossOrigin
 @RestController
 @RequestMapping("/job/")
@@ -84,5 +83,5 @@ public class jobController {
 				public List<String> getDistinctCategories() {
 			        return jobsRepository.findDistinctCategories();
 			    }
-
+						
 }
