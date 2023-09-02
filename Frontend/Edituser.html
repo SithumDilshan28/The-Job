@@ -52,7 +52,14 @@
             <a href="services.html">Services</a>  
             <a href="about.html">About us</a>
             <a href="contact.html">Contact</a>
-            <a class="active" href="#"><i class="mdi mdi-account mr-2"></i>Shanuka</a>
+            <div class="dropdown">
+                <a class="active" href="#"><i class="mdi mdi-account mr-2"></i>Shanuka Sithum</a>
+                <div class="submenu">
+                  <a href="Userprofile.html">Profile</a>
+                  <a href="Edituser.html">Edit Profile</a>
+                  <a href="#">Logout</a>
+                </div>
+            </div>
           </div>
         </div>
       </div>
@@ -75,28 +82,28 @@
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">First Name<span class="text-danger">*</span> :</label>
-                                        <input id="first-name" type="text" name="name" class="form-control resume" placeholder="First Name :">
+                                        <input id="first-name" type="text" name="name" class="form-control resume" placeholder="First Name :" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Middle Name<span class="text-danger">*</span> :</label>
-                                        <input id="middle-name" type="text" class="form-control resume" placeholder="Middle Name :">
+                                        <input id="middle-name" type="text" class="form-control resume" placeholder="Middle Name :" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">NIC<span class="text-danger">*</span> :</label>
-                                        <input id="surname-name" type="text" class="form-control resume" placeholder="NIC :">
+                                        <input id="surname-name" type="text" class="form-control resume" placeholder="NIC :" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Date Of Birth<span class="text-danger">*</span> :</label>
-                                        <input id="date-of-birth" type="date" class="form-control resume" placeholder="13-02-1999">
+                                        <input id="date-of-birth" type="date" class="form-control resume" placeholder="13-02-1999" required>
                                     </div>
                                 </div>
 
@@ -104,7 +111,7 @@
                                     <div class="form-group app-label">
                                         <label class="text-muted">Sex<span class="text-danger">*</span> :</label>
                                         <div class="form-button">
-                                            <select class="nice-select rounded">
+                                            <select class="nice-select rounded" required>
                                                 <option data-display="sex">Sex</option>
                                                 <option value="1">Male</option>
                                                 <option value="2">Female</option>
@@ -118,7 +125,7 @@
                                     <div class="form-group app-label">
                                         <label class="text-muted">Marital Status</label>
                                         <div class="form-button">
-                                            <select class="nice-select rounded">
+                                            <select class="nice-select rounded" required>
                                                 <option data-display="Status">Status</option>
                                                 <option value="1">Unmarried</option>
                                                 <option value="2">Married</option>
@@ -145,21 +152,21 @@
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Phone</label>
-                                        <input id="phone" type="number" class="form-control resume" placeholder="Phone No. :">
+                                        <input id="phone" type="number" class="form-control resume" placeholder="Phone No. :" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">E-mail</label>
-                                        <input id="e-mail" type="email" name="email" class="form-control resume" placeholder="Email ID :">
+                                        <input id="e-mail" type="email" name="email" class="form-control resume" placeholder="Email ID :" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Address</label>
-                                        <input id="website" type="url" name="url" class="form-control resume" placeholder="Address :">
+                                        <input id="website" type="url" name="url" class="form-control resume" placeholder="Address :" required>
                                     </div>
                                 </div>
                             </div>
@@ -180,14 +187,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Graduation</label>
-                                        <input id="graduation" type="text" class="form-control resume" placeholder="">
+                                        <input id="graduation" type="text" class="form-control resume" placeholder="" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">University/College</label>
-                                        <input id="university/college" type="text" class="form-control resume" placeholder="">
+                                        <input id="university/college" type="text" class="form-control resume" placeholder="" required>
                                     </div>
                                 </div>
                             </div>
@@ -208,14 +215,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Company Name</label>
-                                        <input id="company-name" type="text" class="form-control resume" placeholder="">
+                                        <input id="company-name" type="text" class="form-control resume" placeholder="" required>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group app-label">
                                         <label class="text-muted">Job Position</label>
-                                        <input id="job-position" type="text" class="form-control resume" placeholder="">
+                                        <input id="job-position" type="text" class="form-control resume" placeholder="" required>
                                     </div>
                                 </div>
                             </div>
