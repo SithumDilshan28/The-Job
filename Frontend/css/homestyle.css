@@ -63,6 +63,93 @@ header{
   color: #2f55d4; 
 }
 
+.newnav .navigation .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.newnav .navigation .submenu {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+
+.newnav .navigation .dropdown:hover .submenu {
+  display: block;
+}
+
+.newnav .navigation .submenu a {
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+}
+
+.newnav .navigation .submenu a:hover {
+  background-color: #2f55d4;
+  color: #fff;
+}
+
+
+.newnav .navigation .dropdown a.active {
+  color: #2f55d4;
+}
+
+header .navigation .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+header .navigation .submenu {
+  display: none;
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  z-index: 1;
+  min-width: 200px;
+  text-align: left;
+}
+
+
+header .navigation .dropdown:hover .submenu {
+  display: block;
+}
+
+header .navigation .submenu a {
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+}
+
+header .navigation .submenu a:hover {
+  background-color: #2f55d4;
+  color: #fff;
+}
+
+
+header .navigation .dropdown a.active {
+  color: #2f55d4;
+}
+
+
 header .brand{
   color: #fff;
   font-size: 1.5em;
