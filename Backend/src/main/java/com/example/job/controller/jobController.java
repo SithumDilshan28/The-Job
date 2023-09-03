@@ -3,6 +3,7 @@ package com.example.job.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.job.exception.ResourceNotFoundException;
@@ -79,9 +81,49 @@ public class jobController {
 					return ResponseEntity.ok(response);
 				}
 
-				@PostMapping("/getcategories")
-				public List<String> getDistinctCategories() {
-			        return jobsRepository.findDistinctCategories();
+				@GetMapping("/distinctCategoriesWithDuplicateCount")
+			    public List<Map<String, Object>> getDistinctCategoriesWithDuplicateCount() {
+			        List<Object[]> result = jobsRepository.findDistinctCategoriesWithDuplicateCount();
+
+			        // Convert the result into a list of maps for a more structured response
+			        List<Map<String, Object>> response = result.stream()
+			                .map(row -> {
+			                    Map<String, Object> map = Map.of(
+			                            "category", row[0],
+			                            "duplicateCount", row[1]
+			                    );
+			                    return map;
+			                })
+			                .collect(Collectors.toList());
+
+			        return response;
 			    }
+				
+				 @GetMapping("/randomTitle")
+				    public String getRandomJobTitle() {
+				        String randomJobTitle = jobsRepository.getRandomJobTitle();
+
+				        if (randomJobTitle == null) {
+				            // Handle the case where no random job title is found
+				            return "No random job title found";
+				        }
+
+				        return randomJobTitle;
+				    }
+				 
+				 @GetMapping
+				    public List<job> getJobsByCountryAndCategory(
+				            @RequestParam("country") String country,
+				            @RequestParam("category") String category) {
+				        return jobsRepository.findByCountryAndCategory(country, category);
+				    }
+				 
+				 @PostMapping("/search")
+				    public List<job> getJobsByCountryAndCategoryPost(
+				            @RequestBody job searchRequest) {
+				        String country = searchRequest.getCountry();
+				        String category = searchRequest.getCategory();
+				        return jobsRepository.findByCountryAndCategory(country, category);
+				    }
 						
 }
