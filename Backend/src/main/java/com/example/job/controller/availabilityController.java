@@ -74,5 +74,12 @@ public class availabilityController {
 			response.put("deleted", Boolean.TRUE);
 			return ResponseEntity.ok(response);
 		}
-
+		
+		 @PostMapping("/search")
+		    public List<availability> getAvailabilityByDateAndTimeslotPost(
+		            @RequestBody availability searchRequest) {
+		        String date = searchRequest.getDate();
+		        String timeslot = searchRequest.getTimeslot();
+		        return availabilityRepository.findByDateAndTimeslot(date, timeslot);
+		    }
 }
