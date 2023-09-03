@@ -17,87 +17,88 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.job.exception.ResourceNotFoundException;
 import com.example.job.model.user;
-import com.example.job.repository.userRepo;
+import com.example.job.service.UserRepoService;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/user/")
 public class userController {
-	
-	@Autowired
-	private userRepo usersRepository;
+    @Autowired
+    private UserRepoService userRepoService;
 
-		// Create User REST API
-		@PostMapping("/saveuser")
-		public user createUsers(@RequestBody user users) {
-			return usersRepository.save(users);
-		}
-		
-		// Get All Users REST API
-		@GetMapping("/getuser")
-		private List<user> getAllUsers() {
-			return usersRepository.findAll();
-		}
-		
-		// Get User By Id REST API
-		@GetMapping("/getuser/{id}")
-		public ResponseEntity<user> getUsersById(@PathVariable Long id) {
-			user users = usersRepository.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
-			return ResponseEntity.ok(users);
-		}
-		
-		// Update User REST API
-		@PutMapping("/updateuser/{id}")
-		public ResponseEntity<user> updateUsers(@PathVariable Long id, @RequestBody user dusers) {
-			user users = usersRepository.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
-			users.setFirstname(dusers.getFirstname());
-			users.setLastname(dusers.getLastname());
-			users.setNic(dusers.getNic());
-			users.setDob(dusers.getDob());
-			users.setSex(dusers.getSex());
-			users.setMaritalStatus(dusers.getMaritalStatus());
-			users.setAddress(dusers.getAddress());
-			users.setPhone(dusers.getPhone());
-			users.setEmail(dusers.getEmail());
-			users.setPassword(dusers.getPassword());
-			users.setCollege(dusers.getCollege());
-			users.setJob(dusers.getRole());
-			users.setRole(dusers.getRole());
+    // Create User REST API
+    @PostMapping("/saveuser")
+    public user createUsers(@RequestBody user users) {
+        return userRepoService.saveUser(users);
+    }
 
-			user updateUsers = usersRepository.save(users);
-			return ResponseEntity.ok(updateUsers);
-		}
+    // Get All Users REST API
+    @GetMapping("/getuser")
+    private List<user> getAllUsers() {
+        return userRepoService.findAllUsers();
+    }
 
-		// Delete User REST API
-		@DeleteMapping("/deleteuser/{id}")
-		public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
-			user users = usersRepository.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("User not exist with id : " + id));
+    // Get User By Id REST API
+    @GetMapping("/getuser/{id}")
+    public ResponseEntity<user> getUsersById(@PathVariable Long id) {
+        user users = userRepoService.findUserById(id);
+        if (users == null) {
+            throw new ResourceNotFoundException("User not exist with id : " + id);
+        }
+        return ResponseEntity.ok(users);
+    }
 
-			usersRepository.delete(users);
-			Map<String, Boolean> response = new HashMap<>();
-			response.put("deleted", Boolean.TRUE);
-			return ResponseEntity.ok(response);
-		}
-		
-		//Users Login
-		 @PostMapping("/login")
-		    public ResponseEntity<Object> login(@RequestBody user loginForm) {
-		        String email = loginForm.getEmail();
-		        String password = loginForm.getPassword();
+ // Update User REST API
+    @PutMapping("/updateuser/{id}")
+    public ResponseEntity<user> updateUsers(@PathVariable Long id, @RequestBody user dusers) {
+        user users = userRepoService.findUserById(id);
+        if (users == null) {
+            throw new ResourceNotFoundException("User not exist with id : " + id);
+        }
+        // Update user attributes here
+        users.setFirstname(dusers.getFirstname());
+        users.setLastname(dusers.getLastname());
+        users.setNic(dusers.getNic());
+        users.setDob(dusers.getDob());
+        users.setSex(dusers.getSex());
+        users.setMaritalStatus(dusers.getMaritalStatus());
+        users.setAddress(dusers.getAddress());
+        users.setPhone(dusers.getPhone());
+        users.setEmail(dusers.getEmail());
+        users.setPassword(dusers.getPassword());
+        users.setEducation(dusers.getEducation());
+        users.setCollege(dusers.getCollege());
+        users.setJob(dusers.getJob());
+        users.setRole(dusers.getRole());
 
-		        user user = usersRepository.findByEmailAndPassword(email, password);
-		        if (user != null) {
-		            // User authenticated successfully
-		        	return com.example.job.response.response.responseBuilder("User Login Successfully.", HttpStatus.OK, usersRepository.findByEmailAndPassword(email, password));
-		        	
-		        } else {
-		            // Invalid credentials
-		        	Map<String, String> errorResponse = new HashMap<>();
-		            errorResponse.put("message", "Request User Not Found");
-		            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
-		        }
+        user updatedUser = userRepoService.saveUser(users);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+ // Delete User REST API
+    @DeleteMapping("/deleteuser/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id) {
+        userRepoService.deleteUser(id);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
+    }
+
+    // Users Login
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody user loginForm) {
+        String email = loginForm.getEmail();
+        String password = loginForm.getPassword();
+
+        user user = userRepoService.findByEmailAndPassword(email, password);
+        if (user != null) {
+            // User authenticated successfully
+            return com.example.job.response.response.responseBuilder("User Login Successfully.", HttpStatus.OK, user);
+        } else {
+            // Invalid credentials
+            Map<String, String> errorResponse = new HashMap<>();
+            errorResponse.put("message", "Request User Not Found");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+        }
 		    }
 }
