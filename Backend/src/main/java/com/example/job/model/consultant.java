@@ -39,7 +39,7 @@ public class consultant {
 	@Column(name = "specilizedjobtype")
 	private String specilizedjobtype;
 	
-	@Column(name = "imageurl")
+	@Column(name = "imageurl", length = 5000) // Set the length to 5000 characters
 	private String imageurl;
 	
 
