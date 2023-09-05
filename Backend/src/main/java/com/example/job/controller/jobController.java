@@ -125,5 +125,10 @@ public class jobController {
 				        String category = searchRequest.getCategory();
 				        return jobsRepository.findByCountryAndCategory(country, category);
 				    }
+				    
+				    @GetMapping("/count")
+				    public long countAllJobs() {
+				        return jobsRepository.countAllJobs();
+				    }
 						
 }
