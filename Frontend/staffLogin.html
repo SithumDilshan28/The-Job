@@ -21,6 +21,11 @@
         <!-- Custom  Css -->
         <link rel="stylesheet" type="text/css" href="css/stafflogin.css" />
 
+        <script src="./api/admin.js"></script>
+        <script src="./api/consultant.js"></script>
+        <script src="./api/jquery-3.6.4.min.js"></script>
+        
+
     </head>
 
     <body>
@@ -41,21 +46,21 @@
 
         <div class="container" id="container">
             <div class="form-container sign-up-container">
-                <form action="#">
+                <form id="loginForm">
                     <h1 style="margin-bottom: 10px;">Welcome Consultant</h1>
-                    <input type="email" placeholder="Email" required/>
-                    <input  type="password" placeholder="Password" required/>
+                    <input id="input1" type="email" placeholder="Email" required/>
+                    <input id="input2"  type="password" placeholder="Password" required/>
                     <br>
-                    <button>Sign In</button>
+                    <button type="button" onclick="submitLoginForm()">Sign In</button>
                 </form>
             </div>
             <div class="form-container sign-in-container">
                 <form action="#">
                     <h1 style="margin-bottom: 10px;">Welcome Admin</h1>
-                    <input type="email" placeholder="Email" required/>
-                    <input  type="password" placeholder="Password" required/>
+                    <input id="yourUsername" type="email" placeholder="Email" required/>
+                    <input id="yourPassword"  type="password" placeholder="Password" required/>
                     <br>
-                    <button>Sign In</button>
+                    <button type="button" onclick="login()">Sign In</button>
                 </form>
             </div>
             <div class="overlay-container">
@@ -73,8 +78,6 @@
                 </div>
             </div>
         </div>
- 
-  
 
         <!-- javascript -->
         <script src="js/jquery.min.js"></script>
