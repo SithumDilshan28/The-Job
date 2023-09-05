@@ -16,6 +16,9 @@ public interface availabilityRepo extends JpaRepository<availability, Long> {
 List<availability> findByDateAndTimeslot(
      @Param("selectedDate") String selectedDate,
      @Param("selectedTimeslot") String selectedTimeslot);
+
+
+
 }
 
 
