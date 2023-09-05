@@ -29,6 +29,10 @@
     <!-- Custom  Css -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
+
+    <script src="./api/nav.js"></script>
+    <script src="./api/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -45,29 +49,30 @@
 
     <header>
         <a href="index.html" class="logo">
-          <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
-      </a>
+            <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
+        </a>
         <div class="menu-btn"></div>
         <div class="navigation">
-          <div class="navigation-items">
-            <a class="active" href="index.html">Home</a>
-            <a href="job.html">Jobs</a>
-            <a href="consultant.html">Appointment</a>
-            <a href="services.html">Services</a>  
-            <a href="about.html">About us</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html"><i class="mdi mdi-login mr-2"></i>Login</a>
-             <!-- <div class="dropdown">
-                <a href="#"><i class="mdi mdi-account mr-2"></i>Shanuka Sithum</a>
-                <div class="submenu">
-                  <a href="Userprofile.html">Profile</a>
-                  <a href="Edituser.html">Edit Profile</a>
-                  <a href="#">Logout</a>
+            <div class="navigation-items">
+                <a class="active" href="index.html">Home</a>
+                <a href="job.html">Jobs</a>
+                <a href="consultant.html">Appointment</a>
+                <a href="services.html">Services</a>  
+                <a href="about.html">About us</a>
+                <a href="contact.html">Contact</a>
+                <a id="loginLink" href="login.html"><i class="mdi mdi-login mr-2"></i>Login</a>
+                <div id="Uemail" class="dropdown">
+                    <a href="#"><i class="mdi mdi-account mr-2"></i></a>
+                    <div class="submenu">
+                        <a href="Userprofile.html">Profile</a>
+                        <a href="Edituser.html">Edit Profile</a>
+                        <a id="logoutLink" href="#">Logout</a>
+                    </div>
                 </div>
-            </div> -->
-          </div>
+            </div>
         </div>
-      </header>
+    </header>
+    
 
       <section class="home">
         
@@ -132,17 +137,108 @@
                     <a href="javascript:void(0)">
                         <div class="popu-category-box bg-light rounded text-center p-4">
                             <div class="popu-category-icon mb-3">
-                                <i class="mdi mdi-account d-inline-block rounded-pill h3 text-primary"></i>
+                                <i class="mdi mdi-code-braces d-inline-block rounded-pill h3 text-primary"></i>
                             </div>
                             <div class="popu-category-content">
                                 <h5 class="mb-2 text-dark title">Developer</h5>
-                                <p class="text-success mb-0 rounded">780 Jobs</p>
+                                <p class="text-success mb-0 rounded">85 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-bank d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Banking</h5>
+                                <p class="text-success mb-0 rounded">65 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-engine-outline d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Engineering</h5>
+                                <p class="text-success mb-0 rounded">30 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-hospital d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Medicine</h5>
+                                <p class="text-success mb-0 rounded">10 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-briefcase d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Legal</h5>
+                                <p class="text-success mb-0 rounded">15 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-bullhorn d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Marketing</h5>
+                                <p class="text-success mb-0 rounded">35 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-account-group d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Human Resources</h5>
+                                <p class="text-success mb-0 rounded">50 Jobs</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-4 pt-2">
+                    <a href="javascript:void(0)">
+                        <div class="popu-category-box bg-light rounded text-center p-4">
+                            <div class="popu-category-icon mb-3">
+                                <i class="mdi mdi-headset d-inline-block rounded-pill h3 text-primary"></i>
+                            </div>
+                            <div class="popu-category-content">
+                                <h5 class="mb-2 text-dark title">Support Officer</h5>
+                                <p class="text-success mb-0 rounded">25 Jobs</p>
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
+<br>
             <div class="row justify-content-center">
                 <div class="col-12 text-center mt-4 pt-2">
                     <a href="job.html" class="btn btn-primary-outline">Browse All Categories <i class="mdi mdi-chevron-right"></i></a>
@@ -169,7 +265,7 @@
                 <div class="col-lg-9 text-center mt-4 pt-2">
                     <ul class="nav nav-pills nav nav-pills bg-white rounded nav-justified flex-column flex-sm-row" id="pills-tab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link rounded active" id="recent-job-tab" data-toggle="pill" href="#recent-job" role="tab" aria-controls="recent-job" aria-selected="true">All Jobs</a>
+                            <a class="nav-link rounded active" id="recent-job-tab" data-toggle="pill" href="#recent-job" role="tab" aria-controls="recent-job" aria-selected="true">Urgent Job</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link rounded" id="featured-job-tab" data-toggle="pill" href="#featured-job" role="tab" aria-controls="featured-job" aria-selected="false">Entry Level</a>
@@ -264,23 +360,23 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-2">
                                                     <div class="mo-mb-2">
-                                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid mx-auto d-block">
+                                                        <img src="images/featured-job/img-2.png" alt="" class="img-fluid mx-auto d-block">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">Software Engineer</a></h5>
-                                                        <p class="text-muted mb-0">Wanda Technology Pvt.Ltd</p>
+                                                        <h5 class="f-18"><a href="#" class="text-dark">Support Officer</a></h5>
+                                                        <p class="text-muted mb-0">Venus Pvt.Ltd</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>New York, USA</p>
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>London, UK</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>1000-1200/m</p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>500-750/m</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -294,12 +390,12 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience :</span> 1 - 2 years</p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience :</span> 0 year</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Urgent. </p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Freshers. </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -327,28 +423,28 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-2">
                                                     <div class="mo-mb-2">
-                                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid mx-auto d-block">
+                                                        <img src="images/featured-job/img-3.png" alt="" class="img-fluid mx-auto d-block">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">Software Engineer</a></h5>
-                                                        <p class="text-muted mb-0">Wanda Technology Pvt.Ltd</p>
+                                                        <h5 class="f-18"><a href="#" class="text-dark">Electric Engineer</a></h5>
+                                                        <p class="text-muted mb-0">Tesla Pvt.Ltd</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>New York, USA</p>
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>Sydney, AUS</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>1000-1200/m</p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>2500-3500/m</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <p class="text-muted mb-0">Full Time</p>
+                                                        <p class="text-muted mb-0">Part Time</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -357,12 +453,12 @@
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience :</span> 1 - 2 years</p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Experience :</span> 5 years</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Urgent. </p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Need Master Level Education. </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -390,23 +486,23 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-2">
                                                     <div class="mo-mb-2">
-                                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid mx-auto d-block">
+                                                        <img src="images/featured-job/img-4.png" alt="" class="img-fluid mx-auto d-block">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <h5 class="f-18"><a href="#" class="text-dark">Software Engineer</a></h5>
-                                                        <p class="text-muted mb-0">Wanda Technology Pvt.Ltd</p>
+                                                        <h5 class="f-18"><a href="#" class="text-dark">Human Resource Manager</a></h5>
+                                                        <p class="text-muted mb-0">ThirdSpace Pvt.Ltd</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div>
-                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>New York, USA</p>
+                                                        <p class="text-muted mb-0"><i class="mdi mdi-map-marker text-primary mr-2"></i>Toronto, CAN</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>1000-1200/m</p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-primary">$</span>1500-2000/m</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
@@ -425,7 +521,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div>
-                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Urgent. </p>
+                                                        <p class="text-muted mb-0 mo-mb-2"><span class="text-dark">Notes :</span> Stay up-to-date with HR trends and best practices. </p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
