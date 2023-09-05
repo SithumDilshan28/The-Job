@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
+
+
+
 header{
   z-index: 999;
   position: absolute;
@@ -11,6 +14,8 @@ header{
   align-items: center;
   padding: 15px 200px;
   transition: 0.5s ease;
+  display: flex;
+  align-items: center;
 }
 
 .newnav{
@@ -37,6 +42,19 @@ header{
   text-decoration: none;
   margin-left: 20px;
   transition: 0.3s ease;
+}
+
+.navigation-items {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation-items a {
+  text-decoration: none;
+  margin-right: 20px; /* Adjust the spacing between items as needed */
+  color: #000; /* Adjust the color as needed */
 }
 
 .newnav .brand{
