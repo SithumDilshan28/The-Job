@@ -21,6 +21,9 @@ public class appointment {
 	@Column(name = "clientname")
 	private String clientname;
 	
+	@Column(name = "email")
+	private String email;
+	
 	@Column(name = "date")
 	private String date;
 	
@@ -30,17 +33,19 @@ public class appointment {
 	@Column(name = "clientphone")
 	private String clientphone;
 
-	public appointment(long id, String consultantname, String clientname, String date, String time,
+
+	public appointment(long id, String consultantname, String clientname, String email, String date, String time,
 			String clientphone) {
 		super();
 		Id = id;
 		this.consultantname = consultantname;
 		this.clientname = clientname;
+		this.email = email;
 		this.date = date;
 		this.time = time;
 		this.clientphone = clientphone;
 	}
-	
+
 	public appointment () {
 		
 	}
@@ -69,6 +74,14 @@ public class appointment {
 		this.clientname = clientname;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public String getDate() {
 		return date;
 	}
@@ -92,5 +105,7 @@ public class appointment {
 	public void setClientphone(String clientphone) {
 		this.clientphone = clientphone;
 	}
+
+	
 
 }
