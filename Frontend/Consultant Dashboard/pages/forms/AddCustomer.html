@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>The Job - Admin</title>
+    <title>The Job - Consultant</title>
 
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
    
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <script src="../../api/jquery-3.6.4.min.js"></script>
+    <script src="../../api/user.js"></script>
   </head>
 
   <body>
@@ -30,9 +33,25 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Shanuka Sithum</h5>
+                  <h5 class="mb-0 font-weight-normal" id="profileUsername"></h5>
                   <span>Consultant</span>
                 </div>
+                
+                <script>
+                  // JavaScript code to update the profile section with the user's email
+                  document.addEventListener("DOMContentLoaded", function () {
+                    // Retrieve the user's email from session storage
+                    const userEmail = sessionStorage.getItem("email");
+                
+                    // Find the <h5> element by its ID
+                    const profileUsername = document.getElementById("profileUsername");
+                
+                    // Update the <h5> element with the user's email
+                    if (profileUsername && userEmail) {
+                      profileUsername.textContent = userEmail;
+                    }
+                  });
+                </script>
               </div>
             </div>
           </li>
@@ -90,34 +109,11 @@
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
+                
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Shanuka Sithum</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                </div>
-              </li>
+              
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
               <span class="mdi mdi-format-line-spacing"></span>
@@ -139,7 +135,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">First Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="First Name" required/>
+                            <input type="text" class="form-control" id="input1" placeholder="First Name" required/>
                           </div>
                         </div>
                       </div>
@@ -147,7 +143,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Last Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Last Name" required/>
+                            <input type="text" class="form-control" id="input2" placeholder="Last Name" required/>
                           </div>
                         </div>
                       </div>
@@ -157,7 +153,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">NIC</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="NIC" required/>
+                            <input type="text" class="form-control" id="input3" placeholder="NIC" required/>
                           </div>
                         </div>
                       </div>
@@ -165,7 +161,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">DOB</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control"  required/>
+                            <input type="date" class="form-control" id="input4"  required/>
                           </div>
                         </div>
                       </div>
@@ -175,7 +171,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Phone Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Phone Number" required/>
+                            <input type="text" class="form-control" id="input5" placeholder="Phone Number" required/>
                           </div>
                         </div>
                       </div>
@@ -183,7 +179,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Address" required/>
+                            <input type="text" class="form-control" id="input6" placeholder="Address" required/>
                           </div>
                         </div>
                       </div>
@@ -193,22 +189,10 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Sex</label>
                           <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select class="form-control" id="input7" required>
                               <option value="">Sex</option>
-                              <option value="AUS">Male</option>
-                              <option value="CAN">Female</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Marital Status</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" required>
-                              <option value="">Marital Status</option>
-                              <option value="1">Singale</option>
-                              <option value="2">Married</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
                             </select>
                           </div>
                         </div>
@@ -219,7 +203,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Education</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Education" required/>
+                            <input type="text" required class="form-control" id="input9" placeholder="Education"/>
                           </div>
                         </div>
                       </div>
@@ -227,7 +211,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">University</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="University" required/>
+                            <input type="text" class="form-control" id="input10" placeholder="University" required/>
                           </div>
                         </div>
                       </div>
@@ -237,7 +221,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Comapny</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Comapny" required/>
+                            <input type="text" class="form-control" id="input11" placeholder="Comapny" required/>
                           </div>
                         </div>
                       </div>
@@ -245,14 +229,32 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Job Role</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Job Role" required/>
+                            <input type="text" class="form-control" id="input12" placeholder="Job Role" required/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input13" placeholder="Email" required/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="input14" placeholder="Password" required/>
                           </div>
                         </div>
                       </div>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-primary mr-2">Clear</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="saveUser()" >Submit</button>
+                    <button type="clear" class="btn btn-primary mr-2" onclick="resetUser()" >Clear</button>
                   </div>
                 </div>
               </div>
