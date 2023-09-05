@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
    
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+       <script src="../../api/jquery-3.6.4.min.js"></script>
+    <script src="../../api/user.js"></script>
   </head>
 
   <body>
@@ -92,47 +95,9 @@
 
       <div class="container-fluid page-body-wrapper">
         <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="mdi mdi-menu"></span>
-            </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
-            </ul>
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Shanuka Sithum</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                </div>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-format-line-spacing"></span>
-            </button>
-          </div>
+         
         </nav>
-
+        
         <div class="main-panel">
           <div class="content-wrapper">
             <br>
@@ -147,7 +112,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">First Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="First Name" required/>
+                            <input type="text" class="form-control" id="input1" placeholder="First Name" required/>
                           </div>
                         </div>
                       </div>
@@ -155,7 +120,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Last Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Last Name" required/>
+                            <input type="text" class="form-control" id="input2" placeholder="Last Name" required/>
                           </div>
                         </div>
                       </div>
@@ -165,7 +130,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">NIC</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="NIC" required/>
+                            <input type="text" class="form-control" id="input3" placeholder="NIC" required/>
                           </div>
                         </div>
                       </div>
@@ -173,7 +138,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">DOB</label>
                           <div class="col-sm-9">
-                            <input type="date" class="form-control"  required/>
+                            <input type="date" class="form-control" id="input4"  required/>
                           </div>
                         </div>
                       </div>
@@ -183,7 +148,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Phone Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Phone Number" required/>
+                            <input type="text" class="form-control" id="input5" placeholder="Phone Number" required/>
                           </div>
                         </div>
                       </div>
@@ -191,7 +156,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Address" required/>
+                            <input type="text" class="form-control" id="input6" placeholder="Address" required/>
                           </div>
                         </div>
                       </div>
@@ -201,22 +166,10 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Sex</label>
                           <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select class="form-control" id="input7" required>
                               <option value="">Sex</option>
-                              <option value="AUS">Male</option>
-                              <option value="CAN">Female</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group row">
-                          <label class="col-sm-3 col-form-label">Marital Status</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" required>
-                              <option value="">Marital Status</option>
-                              <option value="1">Singale</option>
-                              <option value="2">Married</option>
+                              <option value="Male">Male</option>
+                              <option value="Female">Female</option>
                             </select>
                           </div>
                         </div>
@@ -227,7 +180,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Education</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Education" required/>
+                            <input type="text" class="form-control" id="input9" placeholder="Education" required/>
                           </div>
                         </div>
                       </div>
@@ -235,7 +188,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">University</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="University" required/>
+                            <input type="text" class="form-control" id="input10" placeholder="University" required/>
                           </div>
                         </div>
                       </div>
@@ -245,7 +198,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Comapny</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Comapny" required />
+                            <input type="text" class="form-control" id="input11" placeholder="Comapny" required/>
                           </div>
                         </div>
                       </div>
@@ -253,14 +206,32 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Job Role</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Job Role" required/>
+                            <input type="text" class="form-control" id="input12" placeholder="Job Role" required/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Email</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" id="input13" placeholder="Email" required/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Password</label>
+                          <div class="col-sm-9">
+                            <input type="password" class="form-control" id="input14" placeholder="Password" required/>
                           </div>
                         </div>
                       </div>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary mr-2">Update</button>
-                    <button class="btn btn-primary mr-2">Clear</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="updateUser()" >Submit</button>
+                    <button type="clear" class="btn btn-primary mr-2" onclick="resetUser()" >Clear</button>
                   </div>
                 </div>
               </div>
@@ -276,6 +247,44 @@
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
+
+    <script>
+      // Extract user ID from query parameter
+      var userID = new URLSearchParams(window.location.search).get("id");
+    
+      // Fetch user data from the backend using AJAX
+      $.ajax({
+        url: "http://localhost:8080/user/getuser/" + userID,
+        type: "GET",
+        dataType: "json",
+        success: function (data) {
+          // Populate the form fields with the fetched data
+          $("#input1").val(data.firstName);
+          $("#input2").val(data.lastName);
+          $("#input3").val(data.nic);
+          $("#input4").val(data.dob);
+          $("#input5").val(data.phone);
+          $("#input6").val(data.address);
+          $("#input7").val(data.sex);
+          $("#input9").val(data.education);
+          $("#input12").val(data.jobRole);
+    
+          // Add a click event handler for the "Submit" button to update the consultant
+          $("#updateButton").click(function () {
+            updateConsultant(); // Define this function to send updated data to the backend
+          });
+    
+          // Add a click event handler for the "Clear" button to reset the form
+          $("#clearButton").click(function () {
+            resetConsultant(); // Define this function to clear the form
+          });
+        },
+        error: function (error) {
+          console.error("Error fetching consultant data: " + error);
+        },
+      });
+    </script>
+    
 
   </body>
 
