@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>The Job - Admin</title>
+    <title>The Job - Consultant</title>
 
     <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
    
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <script src="../../api/jquery-3.6.4.min.js"></script>
+    <script src="../../api/schedule.js"></script>
   </head>
 
   <body>
@@ -30,9 +33,25 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Shanuka Sithum</h5>
+                  <h5 class="mb-0 font-weight-normal" id="profileUsername"></h5>
                   <span>Consultant</span>
                 </div>
+                
+                <script>
+                  // JavaScript code to update the profile section with the user's email
+                  document.addEventListener("DOMContentLoaded", function () {
+                    // Retrieve the user's email from session storage
+                    const userEmail = sessionStorage.getItem("email");
+                
+                    // Find the <h5> element by its ID
+                    const profileUsername = document.getElementById("profileUsername");
+                
+                    // Update the <h5> element with the user's email
+                    if (profileUsername && userEmail) {
+                      profileUsername.textContent = userEmail;
+                    }
+                  });
+                </script>
               </div>
             </div>
           </li>
@@ -90,42 +109,16 @@
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
+                
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Shanuka Sithum</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                </div>
-              </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
               <span class="mdi mdi-format-line-spacing"></span>
             </button>
           </div>
         </nav>
-
-        
 
         <div class="main-panel">
           <div class="content-wrapper">
@@ -149,55 +142,38 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Time Slot</label>
                           <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select id="input1" class="form-control" required>
                               <option value="">Time Slot</option>
-                              <option value="1">09:00 AM - 10:00 AM</option>
-                              <option value="2">10:00 AM - 11:00 AM</option>
-                              <option value="3">11:00 AM - 12:00 PM</option>
-                              <option value="4">13:00 PM - 14:00 PM</option>
-                              <option value="5">14:00 PM - 15:00 PM</option>
-                              <option value="6">15:00 PM - 16:00 PM</option>
+                              <option value="09:00 AM - 10:00 AM">09:00 AM - 10:00 AM</option>
+                              <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                              <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                              <option value="13:00 PM - 14:00 PM">13:00 PM - 14:00 PM</option>
+                              <option value="14:00 PM - 15:00 PM">14:00 PM - 15:00 PM</option>
+                              <option value="15:00 PM - 16:00 PM">15:00 PM - 16:00 PM</option>
                             </select>
                           </div>
                         </div>
                       </div>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-primary mr-2">Clear</button>
+                    <button type="clear" class="btn btn-primary mr-2" onclick="fetchAvailability()" >Collect Data</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="saveSchedule()" >Submit</button>
+                    <button type="clear" class="btn btn-primary mr-2" onclick="resetSchedule()" >Clear</button>
                   </div>
                 </div>
-
                 
                 <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="Email" required/>
+                      <input type="hidden" id="input2" class="form-control" required/>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="Email" required/>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" required/>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group row">
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" required/>
+                      <input type="hidden"  id="input4" class="form-control" required/>
                     </div>
                   </div>
                 </div>
@@ -207,14 +183,31 @@
                 <div class="col-md-6">
                   <div class="form-group row">
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" required/>
+                      <input type="hidden"  id="input5" class="form-control" required/>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" required/>
+                      <input type="hidden"  id="input6" class="form-control" required/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <div class="col-sm-9">
+                      <input type="hidden"  id="input7" class="form-control" required/>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group row">
+                    <div class="col-sm-9">
+                      <input type="hidden"  id="input8" class="form-control" required/>
                     </div>
                   </div>
                 </div>
