@@ -104,4 +104,14 @@ public class consultantController {
 		}
 		
 		
+		 @PostMapping("/setavailabledate/{email}")
+		    public List<Object[]> filterConsultantByEmail(@PathVariable String email) {
+		        return consultantRepository.findConsultantDataByEmail(email);
+		    }
+		    
+		    @GetMapping("/count")
+		    public long countAllConsultants() {
+		        return consultantRepository.countAllConsultants();
+		    }
+		
 }
