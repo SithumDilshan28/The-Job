@@ -82,4 +82,6 @@ public class availabilityController {
 		        String timeslot = searchRequest.getTimeslot();
 		        return availabilityRepository.findByDateAndTimeslot(date, timeslot);
 		    }
+		    
+		   
 }
