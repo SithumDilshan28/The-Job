@@ -79,4 +79,40 @@ public class UserRepoService {
     public user findByEmailAndPassword(@Param("email") String name, @Param("password") String password) {
         return userRepository.findByEmailAndPassword(name, password);
     }
+    
+    @Query(value = "SELECT COUNT(*) FROM user", nativeQuery = true)
+    public long countAllUsers() {
+        return userRepository.countAllUsers();
+    }
+    
+    
+    public user findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
+    public user updateByEmail(String email, user updatedUser) {
+        user users = userRepository.findByEmail(email);
+        if (users != null) {
+            // Update user attributes here
+            users.setFirstname(updatedUser.getFirstname());
+            users.setLastname(updatedUser.getLastname());
+            users.setNic(updatedUser.getNic());
+            users.setDob(updatedUser.getDob());
+            users.setSex(updatedUser.getSex());
+            users.setMaritalStatus(updatedUser.getMaritalStatus());
+            users.setAddress(updatedUser.getAddress());
+            users.setPhone(updatedUser.getPhone());
+            users.setEmail(updatedUser.getEmail());
+            users.setPassword(updatedUser.getPassword());
+            users.setEducation(updatedUser.getEducation());
+            users.setCollege(updatedUser.getCollege());
+            users.setJob(updatedUser.getJob());
+            users.setRole(updatedUser.getRole());
+            return userRepository.save(users);
+        } else {
+            return null; // User not found
+        }
+    }
+    
+    
 }
