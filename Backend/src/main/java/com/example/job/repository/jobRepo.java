@@ -22,6 +22,9 @@ List<Object[]> findDistinctCategoriesWithDuplicateCount();
 
 	 @Query(value = "SELECT * FROM job WHERE country = :country AND category = :category", nativeQuery = true)
 	    List<job> findByCountryAndCategory(@Param("country") String country, @Param("category") String category);
+	    
+	    @Query(value = "SELECT COUNT(*) FROM job", nativeQuery = true)
+	    long countAllJobs();
 
 	
 }
