@@ -27,11 +27,12 @@ public class appointmentController {
 	@Autowired
 	private appointmentRepo appoinmentRepo;
 		
-		// Create Appointment REST API
-		@PostMapping("/saveappoinment")
-		public appointment createAppointments(@RequestBody appointment appoinment) {
-			return appoinmentRepo.save(appoinment);
-		}
+	 // Create Appointment REST API
+		@PostMapping("/saveappointment")
+		public appointment createUsers(@RequestBody appointment appointment) {
+        return appoinmentRepo.save(appointment);
+    }
+
 
 		// Get All Appointment REST API
 		@GetMapping("/getappointment")
@@ -50,4 +51,15 @@ public class appointmentController {
 			response.put("deleted", Boolean.TRUE);
 			return ResponseEntity.ok(response);
 		}
+		
+		 @GetMapping("/count")
+		    public long countAllAppointments() {
+		        return appoinmentRepo.countAllAppointments();
+		    }
+		 
+		 @PostMapping("/consultant-email/{email}")
+		    public List<appointment> filterByCounsultEmail(@PathVariable String email) {
+		        
+		        return appoinmentRepo.findByCounsultEmail(email);
+		    }
 }
