@@ -25,6 +25,10 @@
     <!-- Custom  Css -->
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
+    <script src="./api/jobFilter.js"></script>
+    <script src="./api/nav.js"></script>
+    <script src="./api/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -41,26 +45,27 @@
 
 <div class="newnav">
     <a href="index.html" class="logo">
-      <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
+        <img src="images/logo-dark.png" alt="" class="logo-dark" height="18" />
     </a>
+    <div class="menu-btn"></div>
     <div class="navigation">
-      <div class="navigation-items">
-        <a href="index.html">Home</a>
-        <a class="active" href="job.html">Jobs</a>
-        <a href="consultant.html">Appointment</a>
-        <a href="services.html">Services</a>  
-        <a href="about.html">About us</a>
-        <a href="contact.html">Contact</a>
-        <a href="login.html"><i class="mdi mdi-login mr-2"></i>Login</a>
-         <!-- <div class="dropdown">
-                <a href="#"><i class="mdi mdi-account mr-2"></i>Shanuka Sithum</a>
+        <div class="navigation-items">
+            <a href="index.html">Home</a>
+            <a  class="active" href="job.html">Jobs</a>
+            <a href="consultant.html">Appointment</a>
+            <a href="services.html">Services</a>  
+            <a href="about.html">About us</a>
+            <a href="contact.html">Contact</a>
+            <a id="loginLink" href="login.html"><i class="mdi mdi-login mr-2"></i>Login</a>
+            <div id="Uemail" class="dropdown">
+                <a href="#"><i class="mdi mdi-account mr-2"></i></a>
                 <div class="submenu">
-                  <a href="Userprofile.html">Profile</a>
-                  <a href="Edituser.html">Edit Profile</a>
-                  <a href="#">Logout</a>
+                    <a href="Userprofile.html">Profile</a>
+                    <a href="Edituser.html">Edit Profile</a>
+                    <a id="logoutLink" href="#">Logout</a>
                 </div>
-            </div> -->
-      </div>
+            </div>
+        </div>
     </div>
   </div>
 
@@ -80,11 +85,11 @@
                                             <i class="fa fa-location-arrow"></i>
                                             <select id="select-country" class="demo-default" required>
                                                 <option value="">Location</option>
-                                                <option value="AUS">Australia</option>
-                                                <option value="CAN">Canada</option>
-                                                <option value="UK">United Kingdom</option>
-                                                <option value="USA">United State America</option>
-                                                <option value="SIN">Singapore</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Canada">Canada</option>
+                                                <option value="United Kingdom">United Kingdom</option>
+                                                <option value="United State America">United State America</option>
+                                                <option value="Singapore">Singapore</option>
                                               
                                             </select>
                                         </div>
@@ -94,18 +99,18 @@
                                             <i class="fa fa-list-alt"></i>
                                             <select id="select-category" class="demo-default" required>
                                                 <option value="">Categories...</option>
-                                                <option value="1">Accounting</option>
-                                                <option value="2">IT</option>
-                                                <option value="3">Marketing</option>
-                                                <option value="4">Banking</option>
-                                                <option value="5">Medicine</option>
-                                                <option value="6">Engineering</option>
-                                                <option value="7">Customer Service</option>
-                                                <option value="8">Human Resources</option>
-                                                <option value="9">Logistic and Supply Chain</option>
-                                                <option value="10">Graphic Design</option>
-                                                <option value="11"">Office Support</option>
-                                                <option value="12">Legal</option>
+                                                <option value="Accounting">Accounting</option>
+                                                <option value="IT">IT</option>
+                                                <option value="Marketing">Marketing</option>
+                                                <option value="Banking">Banking</option>
+                                                <option value="Medicine">Medicine</option>
+                                                <option value="Engineering">Engineering</option>
+                                                <option value="Customer Service">Customer Service</option>
+                                                <option value="Human Resources">Human Resources</option>
+                                                <option value="Logistic and Supply Chain">Logistic and Supply Chain</option>
+                                                <option value="Graphic Design">Graphic Design</option>
+                                                <option value="Office Support"">Office Support</option>
+                                                <option value="Legal">Legal</option>
                                             </select>
                                         </div>
                                     </div>
@@ -127,135 +132,11 @@
             <div class="row">
                 <center>
                 <div class="col-lg-10 col-md-8">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                            <div class="list-grid-item rounded">
-                                <div class="grid-item-content p-3">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item f-15"><span class="badge badge-success">Part Time</span></li>
-                                        <li class="list-inline-item float-right">
-                                            <div class="grid-fev-icon">
-                                                <a href="#" class="text-danger"><i class="mdi mdi-heart"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="grid-list-img mt-3">
-                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid d-block">
-                                    </div>
-                                    <div class="grid-list-desc mt-3">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Web Developer</a></h5>
-                                        <p class="text-muted f-14 mb-1">Australia</p>
-                                        <p class="text-muted mb-1">$700 - $800/month</p>
-                                        <p class="text-muted mb-1">3 Years Exp.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="apply-button p-3 border-top">
-                                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                            <div class="list-grid-item rounded">
-                                <div class="grid-item-content p-3">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item f-15"><span class="badge badge-success">Part Time</span></li>
-                                        <li class="list-inline-item float-right">
-                                            <div class="grid-fev-icon">
-                                                <a href="#" class="text-danger"><i class="mdi mdi-heart"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="grid-list-img mt-3">
-                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid d-block">
-                                    </div>
-                                    <div class="grid-list-desc mt-3">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Web Developer</a></h5>
-                                        <p class="text-muted f-14 mb-1">Australia</p>
-                                        <p class="text-muted mb-1">$700 - $800/month</p>
-                                        <p class="text-muted mb-1">3 Years Exp.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="apply-button p-3 border-top">
-                                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                            <div class="list-grid-item rounded">
-                                <div class="grid-item-content p-3">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item f-15"><span class="badge badge-success">Part Time</span></li>
-                                        <li class="list-inline-item float-right">
-                                            <div class="grid-fev-icon">
-                                                <a href="#" class="text-danger"><i class="mdi mdi-heart"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="grid-list-img mt-3">
-                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid d-block">
-                                    </div>
-                                    <div class="grid-list-desc mt-3">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Web Developer</a></h5>
-                                        <p class="text-muted f-14 mb-1">Australia</p>
-                                        <p class="text-muted mb-1">$700 - $800/month</p>
-                                        <p class="text-muted mb-1">3 Years Exp.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="apply-button p-3 border-top">
-                                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 mt-4 pt-2">
-                            <div class="list-grid-item rounded">
-                                <div class="grid-item-content p-3">
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item f-15"><span class="badge badge-success">Part Time</span></li>
-                                        <li class="list-inline-item float-right">
-                                            <div class="grid-fev-icon">
-                                                <a href="#" class="text-danger"><i class="mdi mdi-heart"></i></a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="grid-list-img mt-3">
-                                        <img src="images/featured-job/img-1.png" alt="" class="img-fluid d-block">
-                                    </div>
-                                    <div class="grid-list-desc mt-3">
-                                        <h5 class="mb-1"><a href="#" class="text-dark">Web Developer</a></h5>
-                                        <p class="text-muted f-14 mb-1">Australia</p>
-                                        <p class="text-muted mb-1">$700 - $800/month</p>
-                                        <p class="text-muted mb-1">3 Years Exp.</p>
-                                    </div>
-                                </div>
-                                
-                                <div class="apply-button p-3 border-top">
-                                    <a href="#" class="btn btn-primary btn-sm">More Info</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mt-4 pt-2">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination job-pagination mb-0 justify-content-center">
-                                    <li class="page-item disabled">
-                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">
-                                            <i class="mdi mdi-chevron-double-left"></i>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <i class="mdi mdi-chevron-double-right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                    <div id="result" class="row">
+                        
+
+
+                  
                     </div>
                 </div>
             </center>
