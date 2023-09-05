@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <script src="api/schedule.js"></script>
+    <script src="api/jquery-3.6.4.min.js"></script>
   </head>
   <body>
     <div class="container-scroller">
@@ -29,9 +32,25 @@
                   <span class="count bg-success"></span>
                 </div>
                 <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">Shanuka Sithum</h5>
+                  <h5 class="mb-0 font-weight-normal" id="profileUsername"></h5>
                   <span>Consultant</span>
                 </div>
+                
+                <script>
+                  // JavaScript code to update the profile section with the user's email
+                  document.addEventListener("DOMContentLoaded", function () {
+                    // Retrieve the user's email from session storage
+                    const userEmail = sessionStorage.getItem("email");
+                
+                    // Find the <h5> element by its ID
+                    const profileUsername = document.getElementById("profileUsername");
+                
+                    // Update the <h5> element with the user's email
+                    if (profileUsername && userEmail) {
+                      profileUsername.textContent = userEmail;
+                    }
+                  });
+                </script>
               </div>
             </div>
           </li>
@@ -90,9 +109,7 @@
             </button>
             <ul class="navbar-nav w-100">
               <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
+                
               </li>
             </ul>
             <ul class="navbar-nav navbar-nav-right">
@@ -100,23 +117,61 @@
                 <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                   <div class="navbar-profile">
                     <img class="img-xs rounded-circle" src="assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Shanuka Sithum</p>
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name" id="navbarProfileName"></p>
                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                   </div>
+                  
+                  <script>
+                    // JavaScript code to update the navbar profile section with the user's email
+                    document.addEventListener("DOMContentLoaded", function () {
+                      // Retrieve the user's email from session storage
+                      const userEmail = sessionStorage.getItem("email");
+                  
+                      // Find the <p> element by its class name
+                      const navbarProfileName = document.querySelector(".navbar-profile-name");
+                  
+                      // Update the <p> element with the user's email
+                      if (navbarProfileName && userEmail) {
+                        navbarProfileName.textContent = userEmail;
+                      }
+                    });
+                  </script>
+                  
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
+                    <a class="dropdown-item preview-item" id="logoutButton">
+                     <div class="preview-thumbnail">
+                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
-                      </div>
+                       </div>
                     </div>
-                    <div class="preview-item-content">
+                      <div class="preview-item-content">
                       <p class="preview-subject mb-1">Log out</p>
                     </div>
                   </a>
-                </div>
+                  </div>
+                      <script>
+                       // JavaScript code to handle the logout button click
+                      document.addEventListener("DOMContentLoaded", function () {
+                        // Find the logout button by its ID
+                        const logoutButton = document.getElementById("logoutButton");
+
+                        // Add a click event listener to the logout button
+                        if (logoutButton) {
+                          logoutButton.addEventListener("click", function () {
+                            // Clear the session storage
+                            sessionStorage.clear();
+
+                            // Replace the current history state with the logout page
+                            window.history.replaceState(null, "", "../staffLogin.html");
+
+                            // Redirect to the "staffsignin.htm" page
+                            window.location.href = "../staffLogin.html";
+                          });
+                        }
+                      });
+                       </script>
               </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -125,91 +180,197 @@
           </div>
         </nav>
 
-        <!-- partial -->
-        <div class="main-panel">
-          <div class="content-wrapper">
-            <div class="row">
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">100</h3>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
+          <!-- partial -->
+          <div class="main-panel">
+            <div class="content-wrapper">
+              <div class="row">
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0"><span id="appointment-count">Loading...</span></h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-success ">
+                            <i class="mdi mdi-file-document"></i>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success ">
-                          <i class="mdi mdi-file-document"></i>
-                        </div>
-                      </div>
+                      <h6 class="text-muted font-weight-normal">Appointments</h6>
                     </div>
-                    <h6 class="text-muted font-weight-normal">Appointments</h6>
+                  </div>
+                </div>
+  
+                <script>
+                  $(document).ready(function() {
+                      // Function to fetch and display user count
+                      function updateUserCount() {
+                          $.ajax({
+                              url: 'http://localhost:8080/appointment/count', // Replace with the actual endpoint URL
+                              type: 'GET',
+                              dataType: 'json',
+                              success: function(data) {
+                                  $('#appointment-count').text(data);
+                              },
+                              error: function() {
+                                  $('#appointment-count').text('Error fetching user count.');
+                              }
+                          });
+                      }
+          
+                      // Initial fetch of user count
+                      updateUserCount();
+          
+                      // Set up a timer to periodically update the user count (e.g., every 5 seconds)
+                      setInterval(updateUserCount, 5000); // Adjust the interval as needed
+                  });
+              </script>
+  
+  
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0"><span id="job-count">Loading...</span></h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-success">
+                            <i class="mdi mdi-email-open"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Jobs</h6>
+                    </div>
+                  </div>
+                </div>
+  
+                <script>
+                  $(document).ready(function() {
+                      // Function to fetch and display user count
+                      function updateUserCount() {
+                          $.ajax({
+                              url: 'http://localhost:8080/job/count', // Replace with the actual endpoint URL
+                              type: 'GET',
+                              dataType: 'json',
+                              success: function(data) {
+                                  $('#job-count').text(data);
+                              },
+                              error: function() {
+                                  $('#job-count').text('Error fetching user count.');
+                              }
+                          });
+                      }
+          
+                      // Initial fetch of user count
+                      updateUserCount();
+          
+                      // Set up a timer to periodically update the user count (e.g., every 5 seconds)
+                      setInterval(updateUserCount, 5000); // Adjust the interval as needed
+                  });
+              </script>
+  
+  
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="row">
+                              <div class="col-9">
+                                  <div class="d-flex align-items-center align-self-start">
+                                      <h3 class="mb-0"><span id="user-count">Loading...</span></h3>
+                                      <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
+                                  </div>
+                              </div>
+                              <div class="col-3">
+                                  <div class="icon icon-box-success ">
+                                      <i class="mdi mdi-file-document"></i>
+                                  </div>
+                              </div>
+                          </div>
+                          <h6 class="text-muted font-weight-normal">Users</h6>
+                      </div>
+                  </div>
+              </div>
+  
+      <script>
+          $(document).ready(function() {
+              // Function to fetch and display user count
+              function updateUserCount() {
+                  $.ajax({
+                      url: 'http://localhost:8080/user/count', // Replace with the actual endpoint URL
+                      type: 'GET',
+                      dataType: 'json',
+                      success: function(data) {
+                          $('#user-count').text(data);
+                      },
+                      error: function() {
+                          $('#user-count').text('Error fetching user count.');
+                      }
+                  });
+              }
+  
+              // Initial fetch of user count
+              updateUserCount();
+  
+              // Set up a timer to periodically update the user count (e.g., every 5 seconds)
+              setInterval(updateUserCount, 5000); // Adjust the interval as needed
+          });
+      </script>
+     
+                <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-9">
+                          <div class="d-flex align-items-center align-self-start">
+                            <h3 class="mb-0"><span id="consultant-count">Loading...</span></h3>
+                            <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="icon icon-box-success ">
+                            <i class="mdi mdi-chart-pie"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <h6 class="text-muted font-weight-normal">Consultants</h6>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">500</h3>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
-                        </div>
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success">
-                          <i class="mdi mdi-email-open"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h6 class="text-muted font-weight-normal">Jobs</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">100</h3>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
-                        </div>
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success">
-                          <i class="mdi mdi-account"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h6 class="text-muted font-weight-normal">Users</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-9">
-                        <div class="d-flex align-items-center align-self-start">
-                          <h3 class="mb-0">20</h3>
-                          <p class="text-success ml-2 mb-0 font-weight-medium">+</p>
-                        </div>
-                      </div>
-                      <div class="col-3">
-                        <div class="icon icon-box-success ">
-                          <i class="mdi mdi-chart-pie"></i>
-                        </div>
-                      </div>
-                    </div>
-                    <h6 class="text-muted font-weight-normal">Consultants</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
+  
+  
+              <script>
+                $(document).ready(function() {
+                    // Function to fetch and display user count
+                    function updateUserCount() {
+                        $.ajax({
+                            url: 'http://localhost:8080/consultant/count', // Replace with the actual endpoint URL
+                            type: 'GET',
+                            dataType: 'json',
+                            success: function(data) {
+                                $('#consultant-count').text(data);
+                            },
+                            error: function() {
+                                $('#consultant-count').text('Error fetching user count.');
+                            }
+                        });
+                    }
+        
+                    // Initial fetch of user count
+                    updateUserCount();
+        
+                    // Set up a timer to periodically update the user count (e.g., every 5 seconds)
+                    setInterval(updateUserCount, 5000); // Adjust the interval as needed
+                });
+            </script>
 
             <div class="row">
               <div class="col-md-12 col-xl-4 grid-margin stretch-card">
