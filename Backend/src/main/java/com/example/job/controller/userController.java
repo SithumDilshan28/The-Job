@@ -34,7 +34,7 @@ public class userController {
 
     // Get All Users REST API
     @GetMapping("/getuser")
-    private List<user> getAllUsers() {
+	private List<user> getAllUsers() {
         return userRepoService.findAllUsers();
     }
 
@@ -74,6 +74,11 @@ public class userController {
         user updatedUser = userRepoService.saveUser(users);
         return ResponseEntity.ok(updatedUser);
     }
+    
+    @GetMapping("/count")
+    public long countAllUsers() {
+        return userRepoService.countAllUsers();
+    }
 
  // Delete User REST API
     @DeleteMapping("/deleteuser/{id}")
@@ -101,4 +106,41 @@ public class userController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
         }
 		    }
+    
+    @GetMapping("/getuserbyemail/{email}")
+    public ResponseEntity<user> getUsersByEmail(@PathVariable String email) {
+        user users = userRepoService.findUserByEmail(email);
+        if (users == null) {
+            throw new ResourceNotFoundException("User not exist with email : " + email);
+        }
+        return ResponseEntity.ok(users);
+    }
+
+    @PutMapping("/updateuserbyemail/{email}")
+    public ResponseEntity<user> updateUsersByEmail(@PathVariable String email, @RequestBody user dusers) {
+        user users = userRepoService.findUserByEmail(email);
+        if (users == null) {
+            throw new ResourceNotFoundException("User not exist with email : " + email);
+        }
+        // Update user attributes here
+        users.setFirstname(dusers.getFirstname());
+        users.setLastname(dusers.getLastname());
+        users.setNic(dusers.getNic());
+        users.setDob(dusers.getDob());
+        users.setSex(dusers.getSex());
+        users.setMaritalStatus(dusers.getMaritalStatus());
+        users.setAddress(dusers.getAddress());
+        users.setPhone(dusers.getPhone());
+        users.setEmail(dusers.getEmail());
+        users.setPassword(dusers.getPassword());
+        users.setEducation(dusers.getEducation());
+        users.setCollege(dusers.getCollege());
+        users.setJob(dusers.getJob());
+        users.setRole(dusers.getRole());
+
+        user updatedUser = userRepoService.saveUser(users);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    
 }
