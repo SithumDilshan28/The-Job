@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../../assets/css/style.css">
    
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <script src="../../api/jquery-3.6.4.min.js"></script>
+    <script src="../../api/consultant.js"></script>
   </head>
 
   <body>
@@ -92,45 +95,7 @@
 
       <div class="container-fluid page-body-wrapper">
         <nav class="navbar p-0 fixed-top d-flex flex-row">
-          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
-            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-              <span class="mdi mdi-menu"></span>
-            </button>
-            <ul class="navbar-nav w-100">
-              <li class="nav-item w-100">
-                <form class="nav-link mt-2 mt-md-0 d-none d-lg-flex search">
-                  <input type="text" class="form-control" placeholder="Search products">
-                </form>
-              </li>
-            </ul>
-            <ul class="navbar-nav navbar-nav-right">
-              <li class="nav-item dropdown">
-                <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="../../assets/images/faces/face15.jpg" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">Shanuka Sithum</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-                  </div>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                      <div class="preview-icon bg-dark rounded-circle">
-                        <i class="mdi mdi-logout text-danger"></i>
-                      </div>
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Log out</p>
-                    </div>
-                  </a>
-                </div>
-              </li>
-            </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-              <span class="mdi mdi-format-line-spacing"></span>
-            </button>
-          </div>
+         
         </nav>
 
         <div class="main-panel">
@@ -147,7 +112,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Full Name</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Full Name" required/>
+                            <input type="text" id="input1" class="form-control" placeholder="Full Name" required/>
                           </div>
                         </div>
                       </div>
@@ -155,7 +120,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">NIC</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="NIC" required/>
+                            <input type="text" id="input2" class="form-control" placeholder="NIC" required/>
                           </div>
                         </div>
                       </div>
@@ -165,7 +130,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Email</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Email" required/>
+                            <input type="text" id="input3" class="form-control" placeholder="Email" required/>
                           </div>
                         </div>
                       </div>
@@ -173,7 +138,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Password" required/>
+                            <input type="text" id="input4" class="form-control" placeholder="Password" required/>
                           </div>
                         </div>
                       </div>
@@ -183,7 +148,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Phone Number</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Phone Number" required/>
+                            <input type="text" id="input5" class="form-control" placeholder="Phone Number" required/>
                           </div>
                         </div>
                       </div>
@@ -191,7 +156,7 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Address</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Address" required/>
+                            <input type="text" id="input6" class="form-control" placeholder="Address" required/>
                           </div>
                         </div>
                       </div>
@@ -201,13 +166,13 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Country</label>
                           <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select id="input7" class="form-control" required>
                               <option value="">Specialized Country</option>
-                              <option value="AUS">Australia</option>
-                              <option value="CAN">Canada</option>
-                              <option value="UK">United Kingdom</option>
-                              <option value="USA">United State America</option>
-                              <option value="SIN">Singapore</option>
+                              <option value="Australia">Australia</option>
+                              <option value="Canada">Canada</option>
+                              <option value="United Kingdom">United Kingdom</option>
+                              <option value="United State America">United State America</option>
+                              <option value="Singapore">Singapore</option>
                             </select>
                           </div>
                         </div>
@@ -216,20 +181,20 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label"> Job Category</label>
                           <div class="col-sm-9">
-                            <select class="form-control" required>
+                            <select id="input9" class="form-control" required>
                               <option value="">Specialized Job Category</option>
-                              <option value="1">Accounting</option>
-                              <option value="2">IT</option>
-                              <option value="3">Marketing</option>
-                              <option value="4">Banking</option>
-                              <option value="5">Medicine</option>
-                              <option value="6">Engineering</option>
-                              <option value="7">Customer Service</option>
-                              <option value="8">Human Resources</option>
-                              <option value="9">Logistic and Supply Chain</option>
-                              <option value="10">Graphic Design</option>
-                              <option value="11"">Office Support</option>
-                              <option value="12">Legal</option>
+                              <option value="Accounting">Accounting</option>
+                              <option value="IT">IT</option>
+                              <option value="Marketing">Marketing</option>
+                              <option value="Banking">Banking</option>
+                              <option value="Medicine">Medicine</option>
+                              <option value="Engineering">Engineering</option>
+                              <option value="Customer Service">Customer Service</option>
+                              <option value="Human Resources">Human Resources</option>
+                              <option value="Logistic and Supply Chain">Logistic and Supply Chain</option>
+                              <option value="Graphic Design">Graphic Design</option>
+                              <option value="Office Support"">Office Support</option>
+                              <option value="Legal">Legal</option>
                             </select>
                           </div>
                         </div>
@@ -240,14 +205,14 @@
                         <div class="form-group row">
                           <label class="col-sm-3 col-form-label">Image URL</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Image URL" required/>
+                            <input type="text" id="input10" class="form-control" placeholder="Image URL" required/>
                           </div>
                         </div>
                       </div>
                     </div>
                     <br>
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-primary mr-2">Clear</button>
+                    <button type="submit" class="btn btn-primary mr-2" onclick="saveConsultant()" >Submit</button>
+                    <button type="clear" class="btn btn-primary mr-2" onclick="resetConsultant()" >Clear</button>
                   </div>
                 </div>
               </div>
