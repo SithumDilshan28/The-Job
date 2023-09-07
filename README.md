@@ -84,7 +84,6 @@ The Jobs Consultation Centre, located in the vibrant heart of Colombo, plays a p
 - Generate appointment history reports.
 - Include details on past appointments, date, time, consultant, and user feedback.
 
-## Tags
-#job-seekers #consultants #administration #web-app #appointment-scheduling #user-profiles #job-search #contact-messaging #job-listings #real-time-data #availability-management #report-generation
+
 
 
