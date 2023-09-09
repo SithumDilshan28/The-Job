@@ -154,7 +154,6 @@ function getAllUser() {
 }
 
 
-
 function resetUser() { 
   let firstname = $("#input1").val("");
   let lastname = $("#input2").val("");
