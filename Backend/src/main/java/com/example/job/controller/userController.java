@@ -23,8 +23,14 @@ import com.example.job.service.UserRepoService;
 @RestController
 @RequestMapping("/user/")
 public class userController {
+	
     @Autowired
     private UserRepoService userRepoService;
+    
+    public userController (UserRepoService userService) {
+    	 // Get an instance of UserRepoService using the Singleton pattern
+        userService = UserRepoService.getInstance();
+    }
 
     // Create User REST API
     @PostMapping("/saveuser")
