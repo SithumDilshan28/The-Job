@@ -87,6 +87,14 @@
               <span class="menu-title">Contact</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="pages/forms/reportdash.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Report</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -123,27 +131,23 @@
                     </div>
                   </a>
                   </div>
-                      <script>
-                       // JavaScript code to handle the logout button click
-                      document.addEventListener("DOMContentLoaded", function () {
-                        // Find the logout button by its ID
-                        const logoutButton = document.getElementById("logoutButton");
+                  <script>
+                    const logoutButton = document.getElementById("logoutButton");
 
-                        // Add a click event listener to the logout button
-                        if (logoutButton) {
-                          logoutButton.addEventListener("click", function () {
-                            // Clear the session storage
-                            sessionStorage.clear();
-
-                            // Replace the current history state with the logout page
-                            window.history.replaceState(null, "", "../staffLogin.html");
-
-                            // Redirect to the "staffsignin.htm" page
-                            window.location.href = "../staffLogin.html";
-                          });
-                        }
-                      });
-                       </script>
+                    logoutButton.addEventListener("click", () => {
+                      // Clear the session storage
+                      sessionStorage.clear();
+                    
+                      // Redirect to the "../staffLogin.html" page
+                      window.location.href = "../staffLogin.html";
+                    });
+                    
+                    // Disable back and forward navigation
+                    window.addEventListener("popstate", function (event) {
+                      // Restore the current URL and prevent navigation
+                      window.history.pushState(null, "", window.location.href);
+                    });
+                   </script>
               </li>
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
@@ -515,5 +519,36 @@
     <script src="assets/js/settings.js"></script>
     <script src="assets/js/todolist.js"></script>
     <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/logout.js"></script>
+
+    <script>
+      // Check if the admin email session variable is present
+      const adminEmail = sessionStorage.getItem("email");
+
+      if (!adminEmail || adminEmail !== "admin@gmail.com") {
+          // Admin email is not found or is not the admin's email address
+          // Redirect to the login page
+          window.location.href = "../staffLogin.html"; // Update the URL as needed
+      }
+  </script>
+
+    <script>
+      function checkUserSession() {
+        // Check if the user email is stored in session storage
+        const userEmail = sessionStorage.getItem("email");
+      
+        if (userEmail) {
+          // Email exists in session storage, so the user is authenticated.
+          // You can perform any necessary actions here for authenticated users.
+        } else {
+          // Email doesn't exist in session storage, redirect to the login page
+          window.location.href = "../staffLogin.html"; // Update the URL to your login page
+        }
+      }
+      
+      // Call the checkUserSession function when the page loads
+      document.addEventListener("DOMContentLoaded", checkUserSession);
+      </script>
+
   </body>
 </html>
