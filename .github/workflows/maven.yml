@@ -28,5 +28,5 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      working-directory: sithumdilshan/thejob
+      working-directory: /home/runner/work/The-Job/The-Job/sithumdilshan/thejob
       run: mvn clean install -Dmaven.test.skip=true
