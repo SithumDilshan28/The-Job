@@ -90,6 +90,14 @@
               <span class="menu-title">Contact</span>
             </a>
           </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="reportdash.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Report</span>
+            </a>
+          </li>
         </ul>
       </nav>
 
@@ -137,6 +145,35 @@
     <script src="../../assets/js/misc.js"></script>
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
+
+    <script>
+      // Check if the admin email session variable is present
+      const adminEmail = sessionStorage.getItem("email");
+
+      if (!adminEmail || adminEmail !== "admin@gmail.com") {
+          // Admin email is not found or is not the admin's email address
+          // Redirect to the login page
+          window.location.href = "../../../../staffLogin.html"; // Update the URL as needed
+      }
+  </script>
+
+    <script>
+      function checkUserSession() {
+        // Check if the user email is stored in session storage
+        const userEmail = sessionStorage.getItem("email");
+      
+        if (userEmail) {
+          // Email exists in session storage, so the user is authenticated.
+          // You can perform any necessary actions here for authenticated users.
+        } else {
+          // Email doesn't exist in session storage, redirect to the login page
+          window.location.href = "../../../../staffLogin.html"; // Update the URL to your login page
+        }
+      }
+      
+      // Call the checkUserSession function when the page loads
+      document.addEventListener("DOMContentLoaded", checkUserSession);
+      </script>
 
   </body>
 
