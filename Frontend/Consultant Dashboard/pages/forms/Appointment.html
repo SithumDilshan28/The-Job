@@ -162,6 +162,24 @@
     <script src="../../assets/js/settings.js"></script>
     <script src="../../assets/js/todolist.js"></script>
 
+    <script>
+      function checkUserSession() {
+      // Check if the user email is stored in session storage
+      const userEmail = sessionStorage.getItem("email");
+    
+      if (userEmail) {
+        // User email exists in session storage, you can perform any necessary actions here.
+        // For example, you can call a function like getUserByEmail(userEmail) if needed.
+      } else {
+        // User email doesn't exist in session storage, redirect to login page
+        window.location.href = "../../../../staffLogin.html";
+      }
+    }
+    
+    // Call the checkUserSession function when the page loads
+    document.addEventListener("DOMContentLoaded", checkUserSession);
+    </script>
+
   </body>
 
 </html>
