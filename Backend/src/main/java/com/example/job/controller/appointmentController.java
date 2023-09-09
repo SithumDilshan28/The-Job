@@ -62,4 +62,16 @@ public class appointmentController {
 		        
 		        return appoinmentRepo.findByCounsultEmail(email);
 		    }
+		    
+		    @GetMapping("/appointmentCounts")
+		    public List<Object[]> getConsultantAppointmentCounts() {
+		        List<Object[]> consultantCounts = appoinmentRepo.consultantperformance();
+		        return consultantCounts;
+		    }
+		    
+		    @GetMapping("/upcoming")
+		    public ResponseEntity<List<appointment>> getUpcomingAppointments() {
+		        List<appointment> upcomingAppointments = appoinmentRepo.findUpcomingAppointmentsOrderByDateAsc();
+		        return ResponseEntity.ok(upcomingAppointments);
+		    }
 }
