@@ -3,8 +3,12 @@ function login() {
   var password = document.getElementById("yourPassword").value;
 
   if (username === "admin@gmail.com" && password === "1234") {
-      window.location.href = "./Admin Dashboard/index.html";
+    // Save the admin's email in session storage
+    sessionStorage.setItem("email", username);
+
+    // Redirect to the admin dashboard
+    window.location.href = "./Admin Dashboard/index.html";
   } else {
-      alert("Invalid username or password.");
+    alert("Invalid username or password.");
   }
 }
