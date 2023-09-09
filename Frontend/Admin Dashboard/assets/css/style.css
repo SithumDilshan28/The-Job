@@ -21090,6 +21090,8 @@ div.tagsinput {
     -moz-transition: all 0.25s ease;
     -ms-transition: all 0.25s ease; } }
 
+    
+
 .page-body-wrapper {
   min-height: 100vh;
   display: -webkit-flex;
@@ -21126,10 +21128,21 @@ div.tagsinput {
       width: 100%; } }
 
 .content-wrapper {
-  background: #2696E9;
+  background: radial-gradient( circle farthest-corner at 7.2% 13.6%,  rgba(37,249,245,1) 0%, rgba(8,70,218,1) 90% );
   padding: 1.875rem 1.75rem;
   width: 100%;
   -webkit-flex-grow: 1;
   flex-grow: 1; }
+
+
+  .plain-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color from parent */
+  }
+  
+  .plain-link:hover {
+    text-decoration: none; /* Remove underline on hover */
+    color: inherit; /* Inherit text color on hover */
+  }
 
 /*# sourceMappingURL=maps/style.css.map */
