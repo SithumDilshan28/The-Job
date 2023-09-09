@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>The Job - Admin</title>
+
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+  
+    <link rel="stylesheet" href="../../assets/css/style.css">
+   
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
+
+    <script src="../../api/jquery-3.6.4.min.js"></script>
+    <script src="../../api/appointment.js"></script>
+  </head>
+
+  <body>
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+          <a class="sidebar-brand brand-logo" href="../../index.html"><img src="../../assets/images/logo-dark.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="../../index.html"><img src="../../assets/images/favicon.ico" alt="logo" /></a>
+        </div>
+        <ul class="nav">
+          <li class="nav-item profile">
+            <div class="profile-desc">
+              <div class="profile-pic">
+                <div class="count-indicator">
+                  <img class="img-xs rounded-circle " src="../../assets/images/faces/face15.jpg" alt="">
+                  <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                  <h5 class="mb-0 font-weight-normal">Shanuka Sithum</h5>
+                  <span>Admin</span>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item nav-category">
+            <span class="nav-link">Navigation</span>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="../../index.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="consultant.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Consultant</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="customer.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Customer</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="job.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Job</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="appointment.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Appointment</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="contact.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Contact</span>
+            </a>
+          </li>
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="reportdash.html">
+              <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+              </span>
+              <span class="menu-title">Report</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+         
+        </nav>
+
+        <div class="main-panel">
+          <div class="content-wrapper">
+
+            <div class="row">
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <a href="AppointmentReport.html" class="plain-link">
+                            <h3 class="mb-0"><span id="appointment-count">Appointment History</span></h3>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <i class="mdi mdi-file-document"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Report</h6>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <a href="customerreport.html" class="plain-link">
+                            <h3 class="mb-0"><span id="appointment-count">Customer Information</span></h3>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <i class="mdi mdi-file-document"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Report</h6>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <a href="consultantPerformancereport.html" class="plain-link">
+                            <h3 class="mb-0"><span id="appointment-count">Consultant Performance</span></h3>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <i class="mdi mdi-file-document"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Report</h6>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="d-flex align-items-center align-self-start">
+                          <a href="appointmentschedulereport.html" class="plain-link">
+                            <h3 class="mb-0"><span id="appointment-count">Upcoming Appointments</span></h3>
+                          </a>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="icon icon-box-success ">
+                          <i class="mdi mdi-file-document"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <h6 class="text-muted font-weight-normal">Report</h6>
+                  </div>
+                </div>
+              </div>
+              
+
+
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script src="../../assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="../../assets/js/off-canvas.js"></script>
+    <script src="../../assets/js/hoverable-collapse.js"></script>
+    <script src="../../assets/js/misc.js"></script>
+    <script src="../../assets/js/settings.js"></script>
+    <script src="../../assets/js/todolist.js"></script>
+
+    <script>
+      // Check if the admin email session variable is present
+      const adminEmail = sessionStorage.getItem("email");
+
+      if (!adminEmail || adminEmail !== "admin@gmail.com") {
+          // Admin email is not found or is not the admin's email address
+          // Redirect to the login page
+          window.location.href = "../../../../staffLogin.html"; // Update the URL as needed
+      }
+  </script>
+
+    <script>
+      function checkUserSession() {
+        // Check if the user email is stored in session storage
+        const userEmail = sessionStorage.getItem("email");
+      
+        if (userEmail) {
+          // Email exists in session storage, so the user is authenticated.
+          // You can perform any necessary actions here for authenticated users.
+        } else {
+          // Email doesn't exist in session storage, redirect to the login page
+          window.location.href = "../../../../staffLogin.html"; // Update the URL to your login page
+        }
+      }
+      
+      // Call the checkUserSession function when the page loads
+      document.addEventListener("DOMContentLoaded", checkUserSession);
+      </script>
+
+  </body>
+
+</html>
